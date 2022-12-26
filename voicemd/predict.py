@@ -33,5 +33,4 @@ def make_a_prediction(sound_filepath, config_filepath ='/voicemd/config.yaml',
     all_probs = np.array(all_probs)
     avg_prob = np.sum(all_probs, 0) / len(all_probs)
 
-    print(f"{sound_filename} probability to be a male's voice: {round((avg_prob[1]*100),2)}%")
-    print(f"{sound_filename} probability to be a female's voice: {round((avg_prob[0]*100),2)}%\n")
+    return "male" if round((avg_prob[1]100),2) > 50 else "female"
